@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicMana", "MusicMana\MusicMana.csproj", "{F08D66A4-DC86-4CD0-BA12-76D350C44165}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManaPage", "MusicMana\MusicManaPage.csproj", "{F08D66A4-DC86-4CD0-BA12-76D350C44165}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicManaApi", "MusicManaApi\MusicManaApi.csproj", "{7EB50341-C149-4F68-B2AD-2C56D6AFB8EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MusicManaApi", "MusicManaApi\MusicManaApi.csproj", "{7EB50341-C149-4F68-B2AD-2C56D6AFB8EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
