@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicMana.Models;
-using MusicManaApi.BLL;
-using MusicManaApi.DAL;
+using MusicManaApi.DataAccess;
 using MusicManaApi.Data;
+using MusicManaApi.Services;
 using MusicManaApi.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -27,41 +27,7 @@ namespace MusicManaApi.Controllers
         [Produces("application/json")]
         public async Task<IActionResult> GetAllAlbum(int? pageIndex, int? pageSize)
         {
-
-            int skip = (int)Tools.GetPageIndex(pageIndex);
-            int take = (int)Tools.GetPageSize(pageSize);
-
-            var json = JsonConvert.SerializeObject(_appDbContext.Albums
-                .Where(album => album.Singer != null)
-                .OrderBy(album => album.Id)
-                .Skip(skip)
-                .Take(take)
-                .Select(album => new
-                {
-                    Id = album.Id,
-                    AlbumName = album.AlbumName,
-                    SingerName = album.Singer.Sname,
-                    SingerArea = album.Singer.Area
-                })
-                .ToList());
-
-            return await Task.FromResult(Ok(json));
-
-            //var json = JsonConvert.SerializeObject(_appDbContext.Albums
-            //    .Where(album => album.Singer != null)
-            //    .OrderBy(album => album.Id)
-            //    .Skip(skip)
-            //    .Take(take)
-            //    .Select(album => new
-            //    {
-            //        Id = album.Id,
-            //        AlbumName = album.AlbumName,
-            //        SingerName = album.Singer.Sname,
-            //        SingerArea = album.Singer.Area
-            //    })
-            //    .ToList());
-            //return await Task.FromResult(Ok(json));
+            return Ok(await _mainService.getAllAlbum(pageIndex, pageSize, _appDbContext));
         }
-        //return await Task.FromResult(Ok(_mainService.GetAllAlbum(pageIndex, pageSize, _appDbContext)));
     }
 }
