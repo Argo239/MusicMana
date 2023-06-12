@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MusicMana.Models;
 
-namespace MusicManaApi.Data;
+namespace MusicManaApi.DataAccess;
 
 public partial class AppDbContext : DbContext
 {

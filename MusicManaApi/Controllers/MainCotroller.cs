@@ -1,16 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MusicMana.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using MusicManaApi.DataAccess;
-using MusicManaApi.Data;
 using MusicManaApi.Services;
-using MusicManaApi.Utils;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Serialization;
-using Org.BouncyCastle.Crypto.Tls;
-using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,8 +10,14 @@ namespace MusicManaApi.Controllers
     [ApiController]
     public class MainCotroller : ControllerBase
     {
-        AppDbContext _appDbContext = new AppDbContext();
-        MainService _mainService = new MainService();
+        private readonly AppDbContext _appDbContext;
+        private readonly MainService _mainService;
+
+        public MainCotroller(AppDbContext appDbContext, MainService mainService)
+        {
+            _appDbContext = appDbContext;
+            _mainService = mainService;
+        }
 
         [HttpGet]
         [Produces("application/json")]

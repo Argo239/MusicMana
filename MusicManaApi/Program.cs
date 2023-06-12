@@ -3,7 +3,7 @@ using System.Configuration;
 using Microsoft.Extensions.Configuration;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Pomelo.EntityFrameworkCore.MySql.Internal;
-using MusicManaApi.Data;
+using MusicManaApi.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 var bder = new ConfigurationBuilder()
